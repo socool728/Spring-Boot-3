@@ -1,6 +1,7 @@
 package com.springbootlearning.learningspringboot3;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
@@ -16,7 +17,8 @@ public class HomeController {
     );
 
     @GetMapping("/") // Spring MVC's annotation to map HTTP 'GET/' calls to this method
-    public String index() {
+    public String index(Model model) {
+        model.addAttribute("videos", videos);
         return "index";
     }
 }
